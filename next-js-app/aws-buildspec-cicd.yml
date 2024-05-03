@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  # Use Node.js version 14
+    commands:
+      - npm install  # Install dependencies
+
+  pre_build:
+    commands:
+      # Run linting to check for code style and errors
+      - npm run lint
+      # Format code to adhere to coding standards
+      - npm run format
+      # Automatically fix linting errors
+      - npm run lint:fix
+
+  build:
+    commands:
+      # Run tests to ensure code quality and functionality
+      - npm test
+      # Build Docker image for the Next.js application
+      - docker build -t my-nextjs-app .
+
+  post_build:
+    commands:
+      - docker tag my-nextjs-app:latest <your-dockerhub-username>/my-nextjs-app:latest
+      # Push the Docker image to Docker Hub or any other registry
+      - docker push <your-dockerhub-username/my-nextjs-app:latest
+
