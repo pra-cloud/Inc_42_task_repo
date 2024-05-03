@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  # Install phase: Installs Docker and golangci-lint
+  install:
+    runtime-versions:
+      docker: 18
+    commands:
+      - go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
+  # Pre-build phase: Run golangci-lint to lint the Go codebase
+  pre_build:
+    commands:
+      - golangci-lint run
+
+  # Build phase: Run tests
+  build:
+    commands:
+      - go test
+
+  # Post-build phase: Build Docker image, tag it, and push it to Docker Hub
+  post_build:
+    commands:
+      - docker build -t go-app .
+      - docker tag go-app:latest <your-dockerhub-username>/go-app:latest
+      - docker push <your-dockerhub-username>/go-app:latest
+
