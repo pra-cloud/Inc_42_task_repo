@@ -1,1 +1,0 @@
-# Inc_42_task_repo
