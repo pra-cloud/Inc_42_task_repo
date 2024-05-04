@@ -45,6 +45,9 @@ Localhost: http://localhost:3000
 
 
 ## WordPress Application
+
+### NOTE :- WordPress won't run until you provide the MySQL database environment variable to it at the runtime of this Docker container. You can refer to my docker-compose.yml file, which is inside the wordpress-app directory.
+
 The WordPress application is containerized and available as a Docker image on Docker Hub.
 
 Docker Image
