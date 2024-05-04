@@ -6,7 +6,7 @@ This repository contains the code and configurations for a DevOps task aimed at 
  Docker Hub User Account
 The Docker Hub user account associated with this project is pm55.
 
- Go Application
+## Go Application
 The Go application is containerized and available as a Docker image on Docker Hub.
 
  Docker Image
@@ -23,7 +23,7 @@ You can access the Go application in your browser using the following URL:
 
 Localhost: http://localhost:8080
 
-### Next Js Application
+## Next Js Application
 The Next Js application is containerized and available as a Docker image on Docker Hub.
 
  Docker Image
@@ -41,7 +41,7 @@ You can access the Next.js application in your browser using the following URL:
 Localhost: http://localhost:3000
 
 
-# WordPress Application
+## WordPress Application
 The WordPress application is containerized and available as a Docker image on Docker Hub.
 
 Docker Image
