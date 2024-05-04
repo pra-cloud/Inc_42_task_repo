@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # MySQL database container
+  db:
+    image: mysql:5.7
+    container_name: wordpress-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: your_mysql_password
+      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      #MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # WordPress container
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress-app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:80" # Change port if needed
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: your_mysql_password
+      #WORDPRESS_DB_PASSWORD_FILE: /run/secrets/wordpress_db_password
+      WORDPRESS_DB_NAME: wordpress
+
+    volumes:
+      - wp_data:/var/www/html
+
+volumes:
+  db_data:
+  wp_data:
+
+
+# Note :- We can create this password as a secret if we are uing docker swarm
+
+# Example
+
+# MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+
+# WORDPRESS_DB_PASSWORD_FILE: /run/secrets/wordpress_db_password
+
+# you can create secret using these commands
+
+# echo "your_mysql_root_password" | docker secret create mysql_root_password -
+
+# echo "wordpress_password" | docker secret create wordpress_db_password -
