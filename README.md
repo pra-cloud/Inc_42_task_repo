@@ -63,9 +63,10 @@ Localhost: http://localhost:8000
 For achieving continuous integration and continuous deployment (CI/CD), we've implemented an AWS CI/CD pipeline. AWS CodeBuild handles linting and code optimization for specific technologies using the aws-buildspec-cicd.yml file, while AWS CodeDeploy deploys the application inside an EC2 server with zero downtime using appspec.yml.
 
 AWS CodeBuild Setup
-AWS CodeBuild is configured to handle the following tasks:
 
+AWS CodeBuild is configured to handle the following tasks:
 Linting and Code Optimization: AWS CodeBuild utilizes the aws-buildspec-cicd.yml file to perform linting and code optimization for the respective applications.
+
 AWS CodeDeploy Setup
 AWS CodeDeploy manages the deployment process onto an EC2 server with zero downtime. It uses the appspec.yml file to orchestrate the deployment process, ensuring smooth and seamless updates.
 
