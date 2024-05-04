@@ -14,8 +14,9 @@ Image Name: pm55/go-app
 Tag: latest
 Running the Docker Container
 To run the Docker container with the Go application, execute the following command:
+```bash
 docker run -d -p 8080:8080 pm55/go-app:latest
-
+```
 This command will start the container in detached mode (-d) and map port 8080 on the host to port 8080 in the container. Replace pm55/go-app:latest with the appropriate image tag if you're using a specific version.
 
  Accessing the Application
@@ -31,7 +32,9 @@ Image Name: pm55/next-js-app
 Tag: latest
 Running the Docker Container
 To run the Docker container with the Next.js application, execute the following command:
+```bash
 docker run -d -p 3000:3000 pm55/next-js-app:latest
+```
 
 This command will start the container in detached mode (-d) and map port 3000 on the host to port 3000 in the container. Replace pm55/next-js-app:latest with the appropriate image tag if you're using a specific version.
 
@@ -49,7 +52,9 @@ Image Name: pm55/wordpress-app
 Tag: latest
 Running the Docker Container
 To run the Docker container with the WordPress application, execute the following command:
+```bash
 docker run -d -p 8000:80 pm55/wordpress-app:latest
+```
 
 This command will start the container in detached mode (-d) and map port 8000 on the host to port 80 in the container. Replace pm55/wordpress-app:latest with the appropriate image tag if you're using a specific version.
 
@@ -75,13 +80,16 @@ To build all the applications simultaneously, you can utilize the docker-compose
 
 **Building Applications**
 Execute the following command to build the applications using the docker-compose.yaml file:
+```bash
 docker compose up -d
+```
 
 This command will build and start all the services defined in the docker-compose.yaml file in detached mode (-d), allowing you to continue working in your terminal.
 
 **Stopping and Removing Builds**
 To stop or remove all the builds created using the docker-compose.yaml file, execute the following command:
-
+```bash
 docker compose down -d
+```
 
 This command will stop and remove all the containers, networks, and volumes created by the docker-compose.yaml file in detached mode (-d), ensuring clean teardown of the environment.
