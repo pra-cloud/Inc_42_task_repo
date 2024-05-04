@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/next-js-app   # Adjust the destination path as per your setup
+
+permissions:
+  - object: /home/ubuntu/next-js-app
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh   # Optional: Execute any scripts before installation
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/after_install.sh   # Optional: Execute any scripts after installation
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/application_start.sh   # Start your Docker container
+      runas: ubuntu
