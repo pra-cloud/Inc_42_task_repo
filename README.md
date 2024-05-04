@@ -1,13 +1,16 @@
-**Devops-Task-For-Inc42**
+# DevOps Task for Inc42
 
-Docker-Hub user account name :- pm55
 
-**Go application:-**
+This repository contains the code and configurations for a DevOps task aimed at deploying a Go application using Docker. Below are the instructions to get started:
 
-Dockerhub image : pm55/go-app:latest
+## Docker Hub User Account
+The Docker Hub user account associated with this project is pm55.
 
-Go application is exposed on port 8080 For run the docker container use below command:
+### Go Application
+The Go application is containerized and available as a Docker image on Docker Hub.
 
-docker run -d -p 8080:8080 pm55/go-app:latest
-
-You can  access this application from browser use localhost: http://localhost:8000
+### Docker Image
+Image Name: pm55/go-app
+Tag: latest
+Running the Docker Container
+To run the Docker container with the Go application, execute the following command:
