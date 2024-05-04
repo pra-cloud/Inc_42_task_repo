@@ -70,3 +70,18 @@ Linting and Code Optimization: AWS CodeBuild utilizes the aws-buildspec-cicd.yml
 **AWS CodeDeploy Setup**
 AWS CodeDeploy manages the deployment process onto an EC2 server with zero downtime. It uses the appspec.yml file to orchestrate the deployment process, ensuring smooth and seamless updates.
 
+# Docker Compose
+To build all the applications simultaneously, you can utilize the docker-compose.yaml file located in the docker-compose directory.
+
+**Building Applications**
+Execute the following command to build the applications using the docker-compose.yaml file:
+docker compose up -d
+
+This command will build and start all the services defined in the docker-compose.yaml file in detached mode (-d), allowing you to continue working in your terminal.
+
+**Stopping and Removing Builds**
+To stop or remove all the builds created using the docker-compose.yaml file, execute the following command:
+
+docker compose down -d
+
+This command will stop and remove all the containers, networks, and volumes created by the docker-compose.yaml file in detached mode (-d), ensuring clean teardown of the environment.
