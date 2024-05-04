@@ -1,8 +1,8 @@
-Devops-Task-For-Inc42
+**Devops-Task-For-Inc42**
 
 Docker-Hub user account name :- pm55
 
-Go application:-
+**Go application:-**
 
 Dockerhub image : pm55/go-app:latest
 
