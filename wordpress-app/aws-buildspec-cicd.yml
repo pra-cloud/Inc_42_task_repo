@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+       php: 8.1
+  pre_build:
+    commands:
+      - apt-get update && apt-get install -y php-codesniffer
+      - git clone git://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
+  build:
+    commands:
+      - phpcs --standard=WordPress .
+      # Build your Docker image
+      - docker build -t wordpress-app .
+      # Tag your Docker image for Docker Hub
+      - docker tag wordpress-app:latest <your-dockerhub-username>/wordpress-app:latest
+  post_build:
+    commands:
+      # Log in to Docker Hub
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      # Push your Docker image to Docker Hub
+      - docker push <your-dockerhub-username>/wordpress-app:latest
+
